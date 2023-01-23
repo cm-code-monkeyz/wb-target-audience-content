@@ -1,0 +1,17 @@
+{
+  "root": true,
+  "env": {
+    "browser": true
+  },
+  "parser": "babel-eslint",
+  "plugins": [
+    "sonarjs"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:sonarjs/recommended"
+  ],
+  "rules": {
+    "quotes": [2, "single", "backtick", { "avoidEscape": true }]
+  }
+}

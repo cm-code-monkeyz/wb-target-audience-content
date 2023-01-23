@@ -1,0 +1,63 @@
+{
+  "name": "@cm-code-monkeyz/wb-target-audience-content",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/@cm-code-monkeyz"
+  },
+  "version": "1.0.0",
+  "description": "Wijnberg Target Audience Content",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cm-code-monkeyz/wb-target-audience-content.git"
+  },
+  "main": "./src/index.js",
+  "scripts": {
+    "clean": "rimraf \"./dist\" && rimraf \"./types\"",
+    "build": "npm run clean && webpack && npm run cleanup",
+    "cleanup": "rimraf ./types/**/*.spec.d.ts",
+    "develop": "npm run clean && cross-env NODE_ENV=dev webpack serve --color",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.20.7",
+    "@babel/core": "^7.20.12",
+    "@babel/plugin-transform-runtime": "^7.19.6",
+    "@babel/preset-env": "^7.20.2",
+    "@babel/runtime": "^7.20.7",
+    "@cm-code-monkeyz/cm-element": "^2.0.1",
+    "@cm-code-monkeyz/cm-cookie-helper": "^1.0.1",
+    "@typescript-eslint/eslint-plugin": "^5.48.0",
+    "@typescript-eslint/parser": "^5.48.0",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^9.0.0",
+    "body-parser": "^1.20.1",
+    "browserslist": "^4.21.4",
+    "cross-env": "^7.0.3",
+    "css-loader": "^6.7.1",
+    "cssnano": "^5.1.12",
+    "eslint": "^8.26.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-sonarjs": "^0.13.0",
+    "file-loader": "^6.2.0",
+    "glob": "^8.0.3",
+    "husky": "^8.0.2",
+    "multer": "^1.4.5-lts.1",
+    "postcss-clean": "^1.2.2",
+    "postcss-cssnext": "^3.1.1",
+    "postcss-import": "^14.1.0",
+    "postcss-loader": "^7.0.0",
+    "postcss-preset-env": "^7.7.2",
+    "prettier": "^2.7.1",
+    "rimraf": "^3.0.2",
+    "to-string-loader": "^1.2.0",
+    "ts-loader": "^9.4.2",
+    "typescript": "^4.9.4",
+    "util": "^0.12.5",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1",
+    "webpack-dev-server": "^4.11.1"
+  }
+}

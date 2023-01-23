@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="screen.css" rel="stylesheet">
+        <title>CM File Input - Demo</title>
+	    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    </head>
+    <body unresolved>
+    <body>
+        <wb-target-audience-content>
+            <div slot="undefined">
+                <h1>Ik heb nog geen target audience gekozen</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+            <div slot="testAudience">
+                <h1>Deze content is voor de test audience</h1>
+                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+            </div>
+        </wb-target-audience-content>
+        <div class="admin-panel">
+            <form action="#" method="get" id="cookieForm">
+                <select name="wb-target-audience">
+                    <option value="undefined">Geen</option>
+                    <option value="testAudience">testAudience</option>
+                    <option value="notAvailable">Not available</option>
+                </select>
+                <ul class="buttons">
+                    <li><button form="cookieForm" type="submit">Verander target audience</button></li>
+                    <li><button form="reset" type="reset" id="clear">Clear target audience</button></li>
+                </ul>
+            </form>
+        </div>
+        <script defer src="../node_modules/@cm-code-monkeyz/cm-element/dist/cm-element.js"></script>
+        <script defer src="../node_modules/@cm-code-monkeyz/cm-cookie-helper/dist/cm-cookie-helper.js"></script>
+        <script defer src="../dist/wb-target-audience-content.js"></script>
+        <script>
+            var form = document.getElementById('cookieForm');
+            var button = document.getElementById('clear');
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    var formData = new FormData(form);
+                    for (const [key, value] of formData.entries()) {
+                        setCookie(key, value);
+                        document.body.dispatchEvent(new CustomEvent('wb-target-audience-change'));
+                    }
+                });
+            }
+            if (clear) {
+                clear.addEventListener('click', function(e) {
+                    deleteCookie('wb-target-audience');
+                    document.body.dispatchEvent(new CustomEvent('wb-target-audience-change'));
+                });
+            }
+        </script>
+    </body>
+</html>
